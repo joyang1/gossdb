@@ -2,7 +2,6 @@ package gossdb
 
 import (
 	"bytes"
-	"fmt"
 
 	//"fmt"
 	"net"
@@ -282,8 +281,6 @@ func (ssdb *SSDB) Exec() ([]interface{}, error) {
 	for _, v := range ssdb.cmds {
 		cmd := string(v)
 		resp, _ := ssdb.recv_resp(cmd)
-		fmt.Println(cmd)
-		fmt.Println(resp)
 		ret = append(ret, resp)
 	}
 
