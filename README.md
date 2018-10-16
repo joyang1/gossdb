@@ -11,12 +11,10 @@ support all commands
 
     import "gossdb"
 
-    db := ssdb.Conn("127.0.0.1", 8888)
-    defer db.Close()
-    if db.Err != nil {
-        fmt.Println(db.Err.Error())
-        os.Exit(1)
-    }
+    db, err := Conn("127.0.0.1", 8888)
+	if err != nil {
+		panic(err)
+	}
 
     db.Set("test", "456")
 
